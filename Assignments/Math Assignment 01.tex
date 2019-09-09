@@ -1,0 +1,176 @@
+\documentclass[12pt]{article}
+ 
+\usepackage[margin=1in]{geometry} 
+\usepackage{amsmath,amsthm,amssymb}
+ 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+ 
+\newenvironment{theorem}[2][Theorem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{lemma}[2][Lemma]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{exercise}[2][Exercise]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{problem}[2][Problem]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{question}[2][Question]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\newenvironment{corollary}[2][Corollary]{\begin{trivlist}
+\item[\hskip \labelsep {\bfseries #1}\hskip \labelsep {\bfseries #2.}]}{\end{trivlist}}
+\renewcommand{\baselinestretch}{2.0}
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}
+ 
+\begin{document}
+ 
+% --------------------------------------------------------------
+%                         Start here
+% --------------------------------------------------------------
+ 
+\title{Theoretical Assignment}
+\author{Ayush Thada \\
+{University Name}}
+
+\maketitle
+\textbf{\underline{Question 1:}} The random variable ? has Poisson distribution with the parameter $\lambda$. If $\xi$ = k we perform k Bernoulli trials with the probability of success p. Let us define the random variable $\eta$ as the number of successful outcomes of Bernoulli trials.Prove that $\eta$ has Poisson distribution with the parameter p$\lambda$.
+
+        \textbf{\underline{Solution}}\\
+        We have given that,
+        
+        \begin{center}
+        $\xi$ $\sim$ Poisson($\lambda$)\\
+        P(X = $\xi$ $|$ $\lambda$) =\LARGE	$\frac{\lambda^{\xi}e^{-\lambda}}{\xi!}$\normalsize\\
+        \end{center}
+        
+        If a Bernoulli trial with probability p is repeated n no. of times and k success is observed, it's said that it follows Binomial Distribution. So let's define one such distribution (with general parameters).
+        
+        \begin{center}
+        X $\sim$ Binomial(a, b)\\
+        P(X = b $|$ a) =\Large $\binom{a}{b} p^{b} (1-p)^{a-b} $ \normalsize\\
+        \end{center}
+        
+        As per the question the "\textbf{a}" parameter of binomial distribution is sample from Poisson distribution that we have defined above. So lets write the conditional probability mass function (PMF) \{\textit{PMF because binomial is a discrete distribution.}\}\\
+        
+        \begin{center}
+        F(X = $\eta\ |\ n=\xi=k$) =\Large $\binom{k}{\eta} p^{\eta} (1-p)^{k-\eta} $ \normalsize\\
+        \end{center}
+        
+        Now we can easily see that it's a problem related to Parameter Mixture Distribution. Here one of the parameter is random variable hence it can be solved using Bayesian Estimation which is as follow,
+        
+        \begin{center}
+        \large f(x) = $\int\limits_\theta f(x |\theta)f(\theta)\,d\theta$ \normalsize
+        \end{center}
+        
+        ,where $\theta$ is the parameter which is random variable.\\\\
+        Now Substitute the values of functions or we can say distributions in the above equation.
+        
+        \begin{center}
+        \Large
+        f($\eta$) = $\int_0^\infty \binom{k}{\eta}\,\,\, p^{\eta} (1-p)^{k-\eta}\,\,\, \frac{\lambda^{k}e^{-\lambda}}{k!}\,\,\, dk $ \\
+        
+        f($\eta$) = $\int_0^\infty \frac{k!}{(k-\eta)! \,\,\eta!}\,\,\, p^{\eta} (1-p)^{k-\eta}\,\,\, \frac{\lambda^{k}e^{-\lambda}}{k!}\,\,\, dk $ \\
+        \end{center}
+        
+        \normalsize Cancel out the common terms of numerator and denominator. Take those terms out of integral which doesn't contain k except the exponent term.\Large
+        
+        \begin{center}
+        f($\eta$) = $\frac{p^\eta}{\eta!}\int_0^\infty \frac{1}{(k-\eta)!}\,\,\, (1-p)^{k-\eta}\,\,\, \frac{\lambda^{k}e^{-\lambda}}{1}\,\,\, dk $ 
+        
+        f($\eta$) = $\frac{p^\eta}{\eta!}\int_0^\infty \lambda^{k}e^{-\lambda} \frac{(1-p)^{k-\eta}}{(k-\eta)!} \,\,\, dk $ \\
+        \end{center}
+        
+        \normalsize Substitute 1 = $\lambda^{\eta}.\lambda^{-\eta}$ in numerator.\Large
+        
+        \begin{center}
+        f($\eta$) = $\frac{p^{\eta}\,\,\,\lambda^{\eta}}{\eta!}\int_0^\infty \lambda^{k-\eta}e^{-\lambda} \frac{(1-p)^{k-\eta}}{(k-\eta)!} \,\,\, dk$ 
+        \end{center}
+        
+        \normalsize Rearrange the terms.\Large
+        
+        \begin{center}
+        f($\eta$) = $\frac{p^{\eta}\,\,\,\lambda^{\eta}}{\eta!}\int_0^\infty  e^{-\lambda}\,\,\,\frac{(1-p)^{k-\eta}\,\,\,\lambda^{k-\eta}}{(k-\eta)!} \,\,\, dk$ 
+        \end{center}
+        
+        \normalsize Merge the values using this property of exponents $a^{x}.b^{x}\,\, = \,\, (ab)^{x}$.\Large
+        
+        \begin{center}
+        f($\eta$) = $\frac{(p\lambda)^{\eta}}{\eta!}\int_0^\infty  e^{-\lambda}\,\,\,\frac{(\lambda(1-p))^{k-\eta}}{(k-\eta)!} \,\,\, dk$  \\
+        
+        f($\eta$) = $\frac{(p\lambda)^{\eta}}{\eta!}\int_0^\infty  e^{-\lambda}\,\,\,\frac{(\lambda-\lambda p)^{k-\eta}}{(k-\eta)!} \,\,\, dk$ 
+        \end{center}
+        
+        \normalsize Substitute 1 = $e^{-\lambda p}.e^{\lambda p}$ in numerator.\Large
+        
+        \begin{center}
+        f($\eta$) = $\frac{(\lambda p)^{\eta}\,\,\,e^{-\lambda p}}{\eta!}\int_0^\infty  e^{-(\lambda-\lambda p)}\,\,\,\frac{(\lambda-\lambda p)^{k-\eta}}{(k-\eta)!} \,\,\, dk$ 
+        \end{center}
+        
+        \normalsize In the integral substitute k with k-$\eta$ and change limit of integral accordingly.
+        
+        \begin{center}
+        k\,\,:=\,\,k-$\eta$\\
+        \textbf{Lower limit}: = 0-$\eta$ = -$\eta$ \\
+        \textbf{Upper Limit}: $\infty-\eta = \infty$\Large
+        \end{center}
+        
+        \begin{center}
+        f($\eta$) = $\frac{(\lambda p)^{\eta}\,\,\,e^{-\lambda p}}{\eta!}\int_{-\eta}^{\infty} e^{-(\lambda-\lambda p)}\,\,\,\frac{(\lambda-\lambda p)^{k-\eta}}{(k-\eta)!} \,\,\, d(k-\eta)$ \\
+        \end{center}
+        
+        \normalsize In the integral, the expression is equivalent to a Poisson Distribution ie. $(X-\eta) \sim\ Poisson(\lambda-\lambda p)$. Hence, the integration over the whole range will give the value 1.\Large
+        
+        \begin{center}
+        f($\eta$) = $\frac{e^{-\lambda p}\,\,\,(\lambda p)^{\eta}}{\eta!}\,\,.\,1$\\
+        $\eta \sim Poisson(p\lambda)$\\
+        \normalsize Hence Proved.
+        \end{center}
+
+
+
+\normalsize
+\vspace{20mm}
+
+
+\textbf{\underline{Question 2:}} A strict reviewer needs t1 minutes to check assigned application to summer school, where t1 has normal distribution with parameters $\mu$1 = 30, $\sigma$1 = 10. While a kind reviewer needs t2 minutes to check an application, where t2 has normal distribution with parameters $\mu$2 = 20, $\sigma$2 = 5. For each application the reviewer is randomly selected with 0.5 probability. Given that the time of review t = 10, calculate the conditional probability that the application was checked by a kind reviewer.
+
+\textbf{\underline{Solution}}\\
+        According to Bayes theorem, we can say that\\
+        
+        \begin{center}
+        \Large
+        $P(kind\ | \,t = 10) = \frac{P(t = 10\ |\ \,kind)\,.\,P(kind)}{P(t = 10\ |\ \,kind)\,.\,P(kind)\ + \ P(t = 10\ |\ \,strict)\,.\,P(strict)} $
+        \normalsize
+        \end{center}
+        
+        Now determine the values of these probabilities terms in the expression.\\
+        We've given that\\
+        
+        \begin{center}
+        $P(strict)\ =\ P(kind)\ = \ \frac{1}{2}$ \,\,\,(Given)\\
+        $t1 \sim\ N(30,\ 10)$\\
+        $t1 \sim\ N(20,\ 5)$\\
+        \end{center}
+        
+        Now calculate the probabilities.
+        
+        \begin{center}
+        P(t$\ |\ \mu, \sigma$)\ = $\frac{1}{\sqrt{2\pi\sigma^2}}\exp\{{-\frac{(t-\mu)^2}{\sigma^2}}\}$ \\
+        
+        P(t=10$\ |\ $strict)\ = P(t=10$\ |\ \mu=30, \sigma=10$)\ = $\frac{1}{\sqrt{2\pi\ 10^2}}\exp\{{-\frac{(10-\ 30)^2}{\ 10^2}}\} = \frac{e^{-4}}{10\sqrt{2\pi}}$\\
+        
+        P(t=10$\ |\ $kind)\ = P(=10$\ |\ \mu=20, \sigma=5$)\ = $\frac{1}{\sqrt{2\pi\ 5^2}}\exp\{{-\frac{(10-\ 20)^2}{\ 5^2}}\} = \frac{e^{-4}}{5\sqrt{2\pi}}$
+        \end{center}
+        
+        Now substitute the values in main equation, we get
+        
+        \begin{center}
+        \Large
+        $P(kind\ | \,t = 10) = \frac{\frac{e^{-4}}{5\sqrt{2\pi}}\,.\,\frac{1}{2}}{\frac{e^{-4}}{5\sqrt{2\pi}}\,.\,\frac{1}{2}\,\,\,\,+\,\,\,\,\frac{e^{-4}}{10\sqrt{2\pi}}\,.\,\frac{1}{2}}  = \frac{2}{3} = 0.6667\ $
+        \normalsize
+        \end{center}
+
+ ------------------------------------------------
+%     You don't have to mess with anything below this line.
+% --------------------------------------------------------------
+ 
+\end{document}

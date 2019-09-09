@@ -1,0 +1,107 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{portrait, margin=0.7in}
+
+\usepackage{multicol}
+
+%\usepackage[default]{lato}
+\usepackage[T1]{fontenc}
+
+\documentclass{article}
+\usepackage[english]{babel}
+\renewcommand{\baselinestretch}{1.15}
+
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{5.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
+
+
+\begin{document}
+    
+    % Title of the Document
+    \title{}
+    
+    % Header of the Document
+    \noindent
+    \begin{minipage}[c]{0.7 \linewidth}
+        \font\myfont=cmr12 at 50pt
+            {\flushleft{\myfont{Ayush Thada \newline \newline \newline }}}
+    \end{minipage}
+    \begin{minipage}[c]{0.3 \linewidth}
+        \begin{flushright}
+            \mbox{}\hfill \textbf{LinkedIn:} itsayushthada \newline
+            \mbox{}\hfill \textbf{Github:} itsayushthada \newline
+            \mbox{}\hfill \textbf{Email:} xxxx@gmail.com \newline
+            \mbox{}\hfill (+91) xxxxxxxxxx \newline
+            \mbox{}\hfill (+91) xxxxxxxxxx \newline
+        \end{flushright}
+    \end{minipage}
+    
+    
+    % Professional Summary Section
+    \section{Professional Summary}
+        Write here.
+    
+    % Core Strength Section
+    \section{Core Strength}
+    \begin{multicols}{2}
+        \begin{itemize}
+            \item  Skill A
+            \item  Skill B
+            \item  Skill C
+            \item  Skill D
+        \end{itemize}
+    \end{multicols}
+    
+    
+    % Education Section
+    \section{Education}
+        \begin{itemize}
+            \item Formal Education
+                \begin{itemize}
+                    \item Degree Name 
+                    \textbf{[Time Period]}
+                    \newline \textit{University Name}
+                        \begin{itemize}
+                            \item Achievement 1.
+                            \item Achievement 2.
+                            \item Achievement 3.
+                        \end{itemize}
+                \end{itemize}
+            \item Continuing Education \textbf{[Start Year - Present]}
+                \begin{itemize}
+                    \item Deep Learning Specialization \textbf{[duration]}
+                    \item Machine Learning with Tensorflow on GCP Specialization \textbf{[duration]}
+                \end{itemize}
+        \end{itemize}
+        
+    % Experience Section   
+    \section{Experience}
+        \begin{itemize}
+            \item Experience 1 
+            \textbf{[Duration 1]}
+            \newline \textit{Venue/organization/Industry/Startup}
+                \begin{itemize}
+                    \item Role/detail 1.
+                    \item Role/detail 2.
+
+                \end{itemize}
+        \end{itemize}
+    
+    
+    % Projects Section
+    \section{Projects}
+        \begin{itemize}
+            \item Title \textbf{[Duration/Associated Organization/Comapny] }
+            
+        \end{itemize}
+        
+    % Research Paper Section
+    \section{Research Paper}
+        \begin{itemize}
+            \item Title \textbf{[Conference/Journal/Workshop]}
+        \end{itemize}
+        
+\end{document}
