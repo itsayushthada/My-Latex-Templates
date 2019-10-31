@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{geometry}
+\geometry{portrait, margin=0.7in}
+
+\usepackage{multicol}
+
+%\usepackage[default]{lato}
+\usepackage[T1]{fontenc}
+
+\documentclass{article}
+\usepackage[english]{babel}
+\renewcommand{\baselinestretch}{1.15}
+
+\usepackage{titlesec}
+\titlespacing*{\section}
+{0pt}{5.5ex plus 1ex minus .2ex}{1.3ex plus .2ex}
+
+
+\begin{document}
+    
+    % Title of the Document
+    \title{}
+    
+    % Header of the Document
+    \noindent
+    \begin{minipage}[c]{0.7 \linewidth}
+        \font\myfont=cmr12 at 30pt
+            {\flushleft{
+                            \myfont{%Enter Name Here% 
+									\newline \newline }}
+                            \textbf{Date:} %Enter Date Here%
+                        }
+    \end{minipage}
+    \begin{minipage}[c]{0.3 \linewidth}
+        \begin{flushright}
+            \mbox{}\hfill \textbf{LinkedIn:} %Enter LinkedIn ID% 
+			\newline
+            \mbox{}\hfill \textbf{Github:} %Enter GitHub Username% 
+			\newline
+            \mbox{}\hfill \textbf{Email:} %Enter Gmail ID% 
+			\newline
+            \mbox{}\hfill (+%Country Code%) %Contact No. 1% 
+			\newline
+            \mbox{}\hfill (+%Country Code%) %Contact No. 1% 
+			\newline
+        \end{flushright}
+    \end{minipage}
+    
+    \hrule
+    \newline
+    
+    % Content
+    \begin{flushleft}
+        The Project Manager 
+		\newline
+        %Company/Organization Name% 
+		\newline
+        %City%, %Country%
+		\newline
+        \newline
+        Respected Sir/Ma'am,
+        \newline\newline
+		% Paragraph I%
+        \newline\newline
+		%Paragraph II%
+        \newline\newline
+        %Paragraph III%
+        \newline\newline
+        %Paragraph IV%
+        \newline\newline
+        %Paragraph V%
+        \newline\newline
+        Thank you for consideration.
+        \newline
+        Yours Sincerely
+        \newline\
+        %Your Name%
+    
+    \end{flushleft}
+        
+\end{document}
